@@ -6,10 +6,12 @@ const rootDir = require('../util/path');
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
-  console.log('in the middleware at path /');
+const adminData = require('./admin');
 
-  res.sendFile(path.join(rootDir, 'views','shop.html'));
+router.get('/', (req, res, next) => {
+  console.log('in shop.js', adminData.products);
+
+  res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 });
 
 module.exports = router
